@@ -23,7 +23,6 @@ const App = () => {
   });
 
   useEffect(() => {
-    // Use CORS proxy to bypass CORS issues
     const apiKey = 'cur_live_O1IRgs6Kqe6dRRpyqsemlmjBI8unTmT8mMKg88bN';
     const apiUrl = `https://thingproxy.freeboard.io/fetch/https://freecurrencyapi.net/api/v2/latest?apikey=${apiKey}`;
 
@@ -52,13 +51,9 @@ const App = () => {
       }
     };
 
-    // Initial fetch
     fetchData();
 
-    // Fetch every 35 seconds
     const intervalId = setInterval(fetchData, 35000);
-
-    // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
   }, []);
 
